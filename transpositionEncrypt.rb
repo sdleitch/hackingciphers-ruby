@@ -1,10 +1,10 @@
 module Encrypt
-  def encryptMessage(key, message)
+  def Encrypt.encryptMessage(key, message)
     # Each string in ciphertext represents a column in the grid.
     ciphertext = [''] * key
 
     # Loop through each column in ciphertext.
-    key.each do |column|
+    key.times do |column|
       pointer = column
 
       # Keep looping until pointer goes past length of message
