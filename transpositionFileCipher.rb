@@ -31,12 +31,14 @@ def main
 
   content = File.read(inputFilename)
 
-  puts "#{myMode}ing..."
+  # myMode == 'e' ? puts "Encrypting..." : puts "Decrypting..."
 
   startTime = Time.now
-  myMode == 'e' ? translated = Encrypt.encryptMessage(myKey, content) : translated = Decrypt.decryptMessage(myKey, content)
+  myMode = 'e' ? translated = Encrypt.encryptMessage(myKey, content) : translated = Decrypt.decryptMessage(myKey, content)
   totalTime = (Time.now - startTime).round(2)
   puts "#{myMode}ion time: #{totalTime} seconds"
+
+  File.write(outputFilename, translated)
 end
 
 main
