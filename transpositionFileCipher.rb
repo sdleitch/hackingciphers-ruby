@@ -1,11 +1,16 @@
-require 'transpositionEncrypt.rb'
-require ''
+require_relative 'transpositionEncrypt'
+require_relative 'transpositionDecrypt'
 
 def main
   inputFilename = 'frankenstein.txt'
   outputFilename = 'frankenstein.encrypted.txt'
   myKey = 10
-  myMode = 'encrypt' #set 'encrypt' or 'decrypt'
+  puts "Would you like to (E)ncrypt or (D)ecrypt?"
+  myMode = gets.downcase[0]
+  until myMode == ('e' || 'd')
+    puts "Wrong input. Would you like to (E)ncrypt or (D)ecrypt?"
+    myMode = gets.downcase[0]
+  end
 
   #Abort if file doesn't exist.
   if !File.exist?(inputFilename)
@@ -29,7 +34,7 @@ def main
   puts "#{myMode}ing..."
 
   startTime = Time.now
-  myMode = 'encrypt' ? translated = Encrypt.encryptMessage(myKey, content) : translated = Decrypt.decryptMessage(myKey, content)
+  myMode = 'e' ? translated = Encrypt.encryptMessage(myKey, content) : translated = Decrypt.decryptMessage(myKey, content)
   totalTime = (Time.now - startTime).round(2)
   puts "#{myMode}ion time: #{totalTime} seconds"
 end
