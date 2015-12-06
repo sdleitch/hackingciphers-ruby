@@ -4,7 +4,7 @@ module Encrypt
     ciphertext = [''] * key
 
     # Loop through each column in ciphertext.
-    key.times do |column|
+    (0...key).each do |column|
       pointer = column
 
       # Keep looping until pointer goes past length of message
