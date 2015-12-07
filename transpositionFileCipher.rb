@@ -11,10 +11,8 @@ def main
     input = gets.downcase
     if input[0] == 'e'
       myMode = 'encrypt'
-      puts 'ENCRYPT'
     elsif input[0] == 'd'
       myMode = 'decrypt'
-      puts "DECRYPT"
     end
   end
 
@@ -48,7 +46,7 @@ def main
   puts myMode.capitalize + 'ing...'
 
   startTime = Time.now
-  myMode == 'encrypt' ? translated = Encrypt.encryptMessage(myKey, content) : translated = Decrypt.decryptMessage(myKey, content)
+  myMode == 'encrypt' ? translated = encryptMessage(myKey, content) : translated = decryptMessage(myKey, content)
   totalTime = (Time.now - startTime).round(2)
   puts "\n#{myMode.capitalize}ion time: #{totalTime} seconds"
 

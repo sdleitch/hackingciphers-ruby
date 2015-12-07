@@ -17,7 +17,7 @@ def getEnglishCount(message)
 end
 
 def removeNonLetters(message)
-  lettersOnly == []
+  lettersOnly = []
   message.each_char do |char|
     lettersOnly << char if /[a-zA-Z\s]/ === char
   end
@@ -32,5 +32,5 @@ def isEnglish?(message, wordPercentage=20, letterPercentage=85)
   numLetters = removeNonLetters(message).length
   messageLettersPercentage = numLetters.to_f / message.length * 100
   lettersMatch = messageLettersPercentage >= letterPercentage
-  return wordsMatch and lettersMatch
+  return (wordsMatch and lettersMatch)
 end
