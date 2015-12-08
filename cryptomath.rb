@@ -1,13 +1,14 @@
 # Crypomath module
 
-module Crypomath
-  def gcd(a, b)
-      a, b = b % a, a while a != 0
+module Cryptomath
+  def Cryptomath.gcd(a, b)
+    a, b = b % a, a while a != 0
+    return b
   end
 
-  def findModInverse(a, m)
-     # Returns the modular inverse of a % m, which is
-     # the number x such that a*x % m = 1
+  def Cryptomath.findModInverse(a, m)
+    # Returns the modular inverse of a % m, which is
+    # the number x such that a*x % m = 1
     nil if gcd(a, m) != 1 # No no mod inverse if a & m aren't relatively prime
 
     u1, u2, u3 = 1, 0, a
