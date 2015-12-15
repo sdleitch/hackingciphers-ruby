@@ -9,6 +9,6 @@ message = 'Make things as simple as possible, but not simpler.'
   key = keyA * SYMBOLS.length + 1
 
   if Cryptomath.gcd(keyA, SYMBOLS.length) == 1
-    p keyA,  encryptMessage(key, message)
+    p keyA,  Affine.encryptMessage(key, message)
   end
 end
