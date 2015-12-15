@@ -1,11 +1,11 @@
 require_relative 'detectEnglish'
-require_relative 'transpositionDecrypt'
+require_relative 'transpositionEncrypt'
 
 def hackTransposition(message)
   puts "Hacking...\nThis may take awhile...\n(Press Ctrl-C or Ctrl-D to quit at any time.)"
 
   (1...message.length).each do |key|
-    decryptedText = decryptMessage(key, message)
+    decryptedText = Transposition.decryptMessage(key, message)
     puts "Trying key: #{key}"
 
     if isEnglish?(decryptedText)
